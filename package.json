@@ -3,7 +3,7 @@
   "publisher": "prateek-0dev",
   "displayName": "DevSentinel: AI Code Hallucination & Security Proxy",
   "description": "Validates AI-generated code imports against npm/PyPI registries, checks CVEs, and enforces license compliance in real-time.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "icon": "icon.png",
   "repository": {
