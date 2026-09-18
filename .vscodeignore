@@ -10,3 +10,6 @@ jest.config.js
 .claude/**
 .sett/**
 CLAUDE.md
+LINKEDIN_POST.md
+images/**
+*.vsix
