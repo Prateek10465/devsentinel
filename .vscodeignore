@@ -1,0 +1,12 @@
+.vscode/**
+.vscode-test/**
+src/**
+test/**
+coverage/**
+.eslintrc.json
+tsconfig.json
+jest.config.js
+**/*.map
+.claude/**
+.sett/**
+CLAUDE.md

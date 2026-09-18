@@ -1,0 +1,103 @@
+{
+  "name": "devsentinel",
+  "publisher": "prateek-0dev",
+  "displayName": "DevSentinel: AI Code Hallucination & Security Proxy",
+  "description": "Validates AI-generated code imports against npm/PyPI registries, checks CVEs, and enforces license compliance in real-time.",
+  "version": "0.1.1",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Prateek10465/devsentinel"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Linters",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:python",
+    "onCommand:devsentinel.scanDocument",
+    "onCommand:devsentinel.toggleEnablement"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "devsentinel.scanDocument",
+        "title": "DevSentinel: Scan Current Document"
+      },
+      {
+        "command": "devsentinel.toggleEnablement",
+        "title": "DevSentinel: Toggle Enablement"
+      }
+    ],
+    "configuration": {
+      "title": "DevSentinel",
+      "properties": {
+        "devsentinel.enableRealTimeScan": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scan on every document change"
+        },
+        "devsentinel.nvdApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "NVD API key (optional, rate-limited without it)"
+        },
+        "devsentinel.allowedLicenses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "MIT",
+            "Apache-2.0",
+            "BSD-3-Clause",
+            "ISC",
+            "0BSD",
+            "CC0-1.0"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "18.x",
+    "@types/node-fetch": "^2.6.13",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^30.5.1",
+    "ts-jest": "^29.4.12",
+    "typescript": "^5.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": ["<rootDir>/test/**/*.test.ts"],
+    "collectCoverageFrom": ["src/**/*.ts"],
+    "moduleNameMapper": {
+      "^vscode$": "<rootDir>/test/__mocks__/vscode.ts"
+    }
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
