@@ -20,15 +20,30 @@ AI coding assistants (Copilot, ChatGPT) frequently hallucinate non-existent pack
 - **Caching** — registry responses are cached locally so repeated imports don't trigger duplicate API calls
 - **Configurable** — toggle real-time scanning, set your NVD API key, customize the allowed license list
 
-## Screenshots in Action
+## Visual Showcase
 
-| 🛡️ Real-Time Vulnerability Hover | 🚨 AI Hallucination & Slopsquatting Detection |
-| :---: | :---: |
-| ![CVE Risk Score](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_axios.png)<br><sub>Hover details showing CVSS Risk Score, CVE count, and registry info</sub> | ![Fake package detection](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_fake_package.png)<br><sub>Flags non-existent packages with red underlines & 100/100 risk</sub> |
+### 1. 🚨 Catching AI Hallucinations & Slopsquatting
+When an AI assistant suggests a non-existent package, DevSentinel immediately alerts you with an inline diagnostic red underline and assigns a maximum **100/100 risk score**:
 
-| ⚠️ Multiple CVE Warning | 📦 Safe Package Verification |
+![AI Hallucination & Slopsquatting Detection](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_slopsquatting.png)
+![Fake Package Diagnostic Popup](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_fake_package.png)
+
+---
+
+### 2. 🛡️ Live CVE Vulnerability Lookups & CVSS Scoring
+Hover over any imported library to inspect active CVE vulnerabilities fetched directly from NIST's National Vulnerability Database:
+
+| Single Vulnerability Alert (`axios`) | High-Severity CVE Warning (`moment`) |
 | :---: | :---: |
-| ![Moment CVE](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_moment_cve.png)<br><sub>Instant security alert with CVSS score & list of active CVEs</sub> | ![Safe NumPy Package](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_numpy.png)<br><sub>Safe dependencies confirmed with 0/100 risk score and verified existence</sub> |
+| ![Axios CVE Score](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_axios.png) | ![Moment CVE High Alert](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_moment_cve.png) |
+| *CVSS Score 7.5, license verification, registry status* | *CVSS 9.3 High alert with top CVE references* |
+
+---
+
+### 3. ✅ Safe Dependency Confirmation
+Verified packages with zero known vulnerabilities pass cleanly with a **0/100 Risk Score**:
+
+![Safe Dependency Check](https://raw.githubusercontent.com/Prateek10465/devsentinel/main/images/demo_numpy.png)
 
 ## Quick Start
 
